@@ -1,0 +1,136 @@
+\documentclass[tikz,border=10pt]{standalone}
+\input{../../../docs/tikz/dag_preamble.tex}
+
+\begin{document}
+\begin{tikzpicture}[
+  x=1cm,
+  y=1cm,
+  every node/.append style={outer sep=4pt}
+]
+
+\dagPaperMetadata
+  {Artificial Intelligence in the Knowledge Economy}
+  {Ide, Talam\`as}
+  {arXiv 2312.05481v11 (24 Feb 2025); JPE 133(12), 2025}
+  {2025}
+  {https://arxiv.org/abs/2312.05481v11}
+
+\dagPaperLegendRightOfMetadata{
+\node[dag_result, dag_template_legend] (legRes) at (0,0) {checked named\\result};
+\node[dag_lemma, dag_template_legend] (legLem) at (4.0,0) {checked displayed\\equation};
+\node[dag_model, dag_template_legend] (legDef) at (8.0,0) {checked source\\definition};
+\node[dag_partial, dag_template_legend] (legPart) at (12.0,0) {declared\\boundary};
+\node[dag_unformalized, dag_template_legend] (legUn) at (16.0,0) {out of scope\\(read-only)};
+}
+\daglegend{(legRes)(legLem)(legDef)(legPart)(legUn)}{Legend}
+
+\begin{dagPaperBody}
+
+\node[font=\sffamily\bfseries\Large, align=center, text width=22cm]
+  (Class) at (6.5,0.6) {
+  Status: partially formalized --- prices and wages follow exactly from the zero-profit displays;\\
+  the equilibrium partition and the distributional thresholds are declared boundaries
+};
+
+% row 1
+\node[dag_model, text width=6.0cm] (Model) at (-5.5,-2.2) {
+  \textbf{Model, Section 3.1} \\
+  knowledge $z\in[0,1]$, problems $x\sim U[0,1]$;\\
+  communication cost $h\in(0,1)$;\\
+  AI agents of knowledge $z_{AI}$ at rental $r$
+};
+
+\node[dag_lemma, text width=5.4cm] (N) at (2.5,-2.2) {
+  \textbf{Span of control (p.\,10)} \\
+  $h\,n(z)(1-z)=1 \iff n(z)=\frac{1}{h(1-z)}$;\\
+  $n>1$, strictly increasing on $[0,1)$
+};
+
+\node[dag_lemma, text width=5.4cm] (Pi) at (10.5,-2.2) {
+  \textbf{Profits (p.\,12)} \\
+  $\Pi^{tA},\Pi^{bA},\Pi^{nA}$ = expected output\\
+  minus resource cost (three identities)
+};
+
+\node[dag_partial, text width=5.4cm] (Eq) at (18.5,-2.2) {
+  \textbf{Competitive equilibrium (Def., p.\,13)} \\
+  existence, uniqueness, occupational\\
+  partition, matching: not modelled
+};
+
+% row 2
+\node[dag_result, text width=5.4cm] (NA) at (-5.5,-7.4) {
+  \textbf{Non-autonomous: $w^\star(z)=z_{AI}$ (p.\,26)} \\
+  from $r^\star=0$ and zero profit
+};
+
+\node[dag_result, text width=5.6cm] (WtA) at (2.5,-7.4) {
+  \textbf{Proposition 2: $w^*(z)=z_{AI}(1-1/n(z))$} \\
+  from zero profit of a $tA$ firm; $w^*<z_{AI}$;\\
+  the ``$>z$'' on $W^*_a$: boundary
+};
+
+\node[dag_result, text width=5.4cm] (R) at (10.5,-7.4) {
+  \textbf{Proposition 2: $r^*=z_{AI}$} \\
+  zero profit of independent AI production\\
+  (compute abundant: declared)
+};
+
+\node[dag_result, text width=5.6cm] (WbA) at (18.5,-7.4) {
+  \textbf{Proposition 2: $w^*(s)=n(z_{AI})(s-z_{AI})$} \\
+  from zero profit of a $bA$ firm
+};
+
+% row 3
+\node[dag_unformalized, text width=5.2cm] (P5) at (-5.5,-12.6) {
+  \textbf{Propositions 1, 3, 4, 5} \\
+  matching, occupational displacement,\\
+  threshold $\bar z_{AI}$: read-only, numerics only
+};
+
+\node[dag_result, text width=5.8cm] (P63) at (2.5,-12.6) {
+  \textbf{Proposition 6.3} \\
+  $w^\star-w^*=h(1-z)z_{AI}>0$;\\
+  $w^\star>w \iff z_{AI}>w$ (at $z=0$: $z_{AI}>w(0)$)
+};
+
+\node[dag_result, text width=5.4cm] (P61) at (10.5,-12.6) {
+  \textbf{Proposition 6.1 (accounting form)} \\
+  idle compute is output forgone\\
+  at $z_{AI}$ per unit
+};
+
+\node[dag_result, text width=5.2cm] (Loses) at (18.5,-12.6) {
+  \textbf{$z_{AI}$ always loses (p.\,24)} \\
+  $w^*(z_{AI})=z_{AI}<w(z_{AI})$, premises\\
+  from Propositions 1 and 2
+};
+
+\node[dag_template_note, text width=12cm, align=center] (Ext) at (6.5,-16.6) {
+  \textbf{Extension (two-type economy):} bottom gains under autonomous AI iff
+  $z_{AI}>z_L/(1-h(1-z_L))$, under non-autonomous AI iff $z_{AI}>z_L$; the non-autonomous premium is
+  $h(1-z_L)z_{AI}$; the top loses under non-autonomy; output ranking by idle compute
+};
+
+\draw[dag_arrow] (Model) -- (N);
+\draw[dag_arrow] (Model) -- (Pi);
+\draw[dag_dashed_arrow] (Eq) -- (Pi);
+\draw[dag_arrow] (Pi) -- (R);
+\draw[dag_arrow] (N) -- (WtA);
+\draw[dag_arrow] (R) -- (WtA);
+\draw[dag_arrow] (R) -- (WbA);
+\draw[dag_arrow] (Pi.south west) -- (NA.north east);
+\draw[dag_arrow] (WtA) -- (P63);
+\draw[dag_arrow] (NA.south east) -- (P63.north west);
+\draw[dag_arrow] (R) -- (P61);
+\draw[dag_arrow] (R.south east) -- (Loses.north west);
+\draw[dag_dashed_arrow] (Eq.east) -- ++(0.9,0) |- (Loses.east);
+\draw[dag_dashed_arrow] (Eq.west) -- ++(-0.6,0) |- (P5.east);
+\draw[dag_dashed_arrow] (P63) -- (Ext);
+
+\node[font=\sffamily\bfseries\large, align=center] at (6.5,-19.2)
+  {Proof endpoints: \texttt{ProofInterface.lean}; extension: \texttt{MainTheorems.lean}};
+
+\end{dagPaperBody}
+\end{tikzpicture}
+\end{document}

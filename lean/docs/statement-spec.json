@@ -1,0 +1,98 @@
+{
+  "schema": 1,
+  "source_artifact_path": "paper.pdf",
+  "source_artifact_sha256": "0b3c727a204f7801a9598dacd7ca7fdb385e21ee6877992ea0eb13c0538d8ebf",
+  "source_version": "arXiv 2312.05481v11, February 24, 2025 (accepted manuscript of Journal of Political Economy 133(12), 2025)",
+  "targets": [
+    {
+      "source_item": "Span of control n(z) (Section 3.1, the pre-AI economy)",
+      "source_kind": "claim",
+      "source_location": "Section 3.1, page 10, sentence after Figure 1's paragraph: 'a two-layer organization optimally hires exactly n(z) workers ... where n(z) satisfies h × n(z) × (1 − z) = 1'; h ∈ (0, 1) is introduced on the same page",
+      "source_statement": "Communication is costly in that each request for help consumes h ∈ (0, 1) units of the solver's time, regardless of whether the solver knows the solution. Hence, a two-layer organization optimally hires exactly n(z) workers of knowledge z < 1 to fully exploit its solver's time, where n(z) satisfies h × n(z) × (1 − z) = 1.",
+      "lean_name": "paper_span_of_control",
+      "lean_type": "∀ h z n : ℝ, 0 < h → h < 1 → 0 ≤ z → z < 1 →\n  (h * n * (1 - z) = 1 ↔ n = 1 / (h * (1 - z)))",
+      "kind": "theorem"
+    },
+    {
+      "source_item": "Span of control exceeds one and is increasing in the workers' knowledge (Sections 3.1 and 5.1)",
+      "source_kind": "claim",
+      "source_location": "Section 5.1, page 22, paragraph before Proposition 4: 'a solver's span of control is increasing in the knowledge of the workers with whom she is matched'; n(z) = 1/(h(1 − z)) from Section 3.1, page 10",
+      "source_statement": "Similarly, a solver's span of control is equal to the number of workers (human or AI) under her supervision. Hence, a solver's span of control is increasing in the knowledge of the workers with whom she is matched. [With n(z) = 1/(h(1 − z)), h ∈ (0, 1) and z ∈ [0, 1): n(z) > 1 and n is strictly increasing.]",
+      "lean_name": "paper_span_of_control_increasing",
+      "lean_type": "∀ h : ℝ, 0 < h → h < 1 →\n  (∀ z : ℝ, 0 ≤ z → z < 1 → 1 < 1 / (h * (1 - z))) ∧\n  StrictMonoOn (fun z : ℝ => 1 / (h * (1 - z))) (Set.Ico 0 1)",
+      "kind": "theorem"
+    },
+    {
+      "source_item": "Profit of the three two-layer organizations equals expected output minus resource cost (Section 3.1, Wages, Prices, and Profits)",
+      "source_kind": "claim",
+      "source_location": "Section 3.1, page 12, displays Π2^tA(z) = n(z)[zAI − w(z)] − r, Π2^bA(s) = n(zAI)[s − r] − w(s), Π2^nA(s,z) = n(z)[s − w(z)] − w(s) and the sentence 'In all three cases, the profit of a firm is its expected output minus the cost of the resources it uses'",
+      "source_statement": "Π2^tA(z) = n(z)[zAI − w(z)] − r (where z ≤ zAI); Π2^bA(s) = n(zAI)[s − r] − w(s) (where zAI ≤ s); Π2^nA(s, z) = n(z)[s − w(z)] − w(s) (where z ≤ s). In all three cases, the profit of a firm is its expected output minus the cost of the resources it uses. For instance, in the case of a tA firm that hires workers with knowledge z, its total expected output is n(z)zAI, while the cost of resources is n(z)w(z) + r.",
+      "lean_name": "paper_profit_identities",
+      "lean_type": "∀ n nAI zAI s z w r ws : ℝ,\n  n * (zAI - w) - r = n * zAI - (n * w + r) ∧\n  nAI * (s - r) - ws = nAI * s - (nAI * r + ws) ∧\n  n * (s - w) - ws = n * s - (n * w + ws)",
+      "kind": "theorem"
+    },
+    {
+      "source_item": "Proposition 2 (prices): the rental rate of compute equals zAI",
+      "source_kind": "proposition",
+      "source_location": "Proposition 2, page 19: 'Finally, the rental rate of compute r∗ is equal to zAI'; the argument on page 19 ('because compute is abundant relative to time, some AI agents must engage in independent production') and the single-layer profit zAI − r on page 12 with zero profit",
+      "source_statement": "Finally, the rental rate of compute r∗ is equal to zAI. [Reason given on page 19: because compute is abundant relative to time, some AI agents must engage in independent production; the profit of a single-layer firm using an AI agent is zAI − r (page 12), which is zero in a competitive equilibrium.]",
+      "lean_name": "paper_prop2_rental_rate",
+      "lean_type": "∀ zAI r : ℝ, zAI - r = 0 → r = zAI",
+      "kind": "theorem"
+    },
+    {
+      "source_item": "Proposition 2 (wages): humans working with an AI solver earn w∗(z) = zAI(1 − 1/n(z))",
+      "source_kind": "proposition",
+      "source_location": "Proposition 2, page 19, first wage bullet: 'w∗(z) = zAI(1 − 1/n(z)) > z for all z ∈ W∗_a'; zero-profit condition of a tA firm from page 12 with r∗ = zAI",
+      "source_statement": "w∗(z) = zAI(1 − 1/n(z)) > z for all z ∈ W∗_a. [Formalized as: the zero-profit condition n(z)[zAI − w] − r = 0 with r = zAI and n(z) = 1/(h(1 − z)) yields w = zAI(1 − 1/n(z)), and this wage is strictly below zAI. The strict inequality w∗(z) > z on W∗_a is an equilibrium property (which humans belong to W∗_a) and is a declared boundary.]",
+      "lean_name": "paper_prop2_ai_assisted_worker_wage",
+      "lean_type": "∀ h z zAI w : ℝ, 0 < h → h < 1 → 0 ≤ z → z < 1 → 0 < zAI →\n  (1 / (h * (1 - z))) * (zAI - w) - zAI = 0 →\n    w = zAI * (1 - 1 / (1 / (h * (1 - z)))) ∧ w < zAI",
+      "kind": "theorem"
+    },
+    {
+      "source_item": "Proposition 2 (wages): humans supervising AI workers earn w∗(z) = n(zAI)(z − zAI)",
+      "source_kind": "proposition",
+      "source_location": "Proposition 2, page 19, last wage bullet: 'w∗(z) = n(zAI)(z − zAI) > z for all z ∈ S∗_a'; zero-profit condition of a bA firm from page 12 with r∗ = zAI",
+      "source_statement": "w∗(z) = n(zAI)(z − zAI) > z for all z ∈ S∗_a. [Formalized as: the zero-profit condition n(zAI)[s − r] − w = 0 with r = zAI yields w = n(zAI)(s − zAI). The strict inequality > z on S∗_a is an equilibrium property and a declared boundary.]",
+      "lean_name": "paper_prop2_ai_workers_solver_wage",
+      "lean_type": "∀ h s zAI w : ℝ, 0 < h → h < 1 → 0 ≤ zAI → zAI < 1 →\n  (1 / (h * (1 - zAI))) * (s - zAI) - w = 0 →\n    w = (1 / (h * (1 - zAI))) * (s - zAI)",
+      "kind": "theorem"
+    },
+    {
+      "source_item": "The individual with knowledge zAI always loses from AI (Section 5.2)",
+      "source_kind": "claim",
+      "source_location": "Section 5.2, page 24: 'the individual with knowledge zAI always loses from AI, i.e., w∗(zAI) < w(zAI)'; premises: Proposition 2, page 19, 'w∗(zAI) = zAI', and Proposition 1, page 16, 'w(z) > z for all z ∈ [0, 1] when h < h0'",
+      "source_statement": "To begin, note that the individual with knowledge zAI always loses from AI, i.e., w∗(zAI) < w(zAI). [Premises as stated in the paper: In particular, w∗(sup W∗) = sup W∗_p, w∗(zAI) = zAI (Proposition 2); w(z) > z for all z ∉ cl I (so w(z) > z for all z ∈ [0, 1] when h < h0) (Proposition 1).]",
+      "lean_name": "paper_zAI_always_loses",
+      "lean_type": "∀ zAI wpre wpost : ℝ, wpost = zAI → zAI < wpre → wpost < wpre",
+      "kind": "theorem"
+    },
+    {
+      "source_item": "Non-autonomous AI: with r⋆ = 0 the human workers of an AI-assisted firm earn the whole team output, w⋆(z) = zAI (Section 6.1)",
+      "source_kind": "claim",
+      "source_location": "Section 6.1, page 26: 'the equilibrium rental rate of compute is zero, r⋆ = 0. The reason is that some compute must remain idle'; Proposition 6, page 27: 'If zAI > w(0), then only the least knowledgeable individuals use AI as a solver'; zero-profit condition of a tA firm from page 12",
+      "source_statement": "Since compute is abundant relative to time and AI is non-autonomous, the equilibrium rental rate of compute is zero, r⋆ = 0. [Combined with the zero-profit condition of a firm that uses AI as a solver, n(z)[zAI − w(z)] − r = 0 (page 12), this gives w⋆(z) = zAI for every human worker assisted by non-autonomous AI. The formula is derived from the paper's displays; it is not printed as such in v11.]",
+      "lean_name": "paper_prop6_nonautonomous_worker_wage",
+      "lean_type": "∀ h z zAI w : ℝ, 0 < h → h < 1 → 0 ≤ z → z < 1 →\n  (1 / (h * (1 - z))) * (zAI - w) - 0 = 0 → w = zAI",
+      "kind": "theorem"
+    },
+    {
+      "source_item": "Proposition 6, item 3: the least knowledgeable benefit more from non-autonomous AI than from no AI or autonomous AI",
+      "source_kind": "proposition",
+      "source_location": "Proposition 6, page 27, item 3: '∃ ε > 0 such that, for all z ∈ [0, ε), w⋆(z) ≥ max{w(z), w∗(z)} (with strict inequality if zAI > w(0))'; wage formulas w⋆(z) = zAI (Section 6.1, page 26) and w∗(z) = zAI(1 − 1/n(z)) (Proposition 2, page 19)",
+      "source_statement": "The least knowledgeable benefit more from non-autonomous AI than from no AI or autonomous AI: ∃ ε > 0 such that, for all z ∈ [0, ε), w⋆(z) ≥ max{w(z), w∗(z)} (with strict inequality if zAI > w(0)). [Formalized for a worker assisted by AI in both regimes: w⋆(z) − w∗(z) = zAI/n(z) = h(1 − z)zAI > 0, and w⋆(z) = zAI exceeds the pre-AI wage exactly when zAI > w(z). That the least knowledgeable are AI-assisted in both regimes near z = 0 is an equilibrium property and a declared boundary.]",
+      "lean_name": "paper_prop6_bottom_prefers_nonautonomous",
+      "lean_type": "∀ h z zAI wpre : ℝ, 0 < h → h < 1 → 0 ≤ z → z < 1 → 0 < zAI →\n  zAI - zAI * (1 - 1 / (1 / (h * (1 - z)))) = h * (1 - z) * zAI ∧\n  zAI * (1 - 1 / (1 / (h * (1 - z)))) < zAI ∧\n  (wpre < zAI ↔ wpre < max wpre zAI ∧ zAI = max wpre zAI)",
+      "kind": "theorem"
+    },
+    {
+      "source_item": "Proposition 6, item 1: overall output is strictly higher with autonomous than non-autonomous AI (idle-compute accounting)",
+      "source_kind": "proposition",
+      "source_location": "Proposition 6, page 27, item 1, and the explanation on page 27: 'total output with non-autonomous AI is strictly lower than with autonomous AI because non-autonomy imposes a binding constraint on compute use, leaving some of it idle'; output accounting on page 13 (term zAI µi)",
+      "source_statement": "Overall output is strictly higher with autonomous than non-autonomous AI. [Explanation given on page 27: non-autonomy imposes a binding constraint on compute use, leaving some of it idle. Formalized in the accounting form: with human output Yhuman fixed, compute used in independent production at zAI per unit, strictly less compute used under non-autonomy gives strictly less output.]",
+      "lean_name": "paper_prop6_output_idle_compute",
+      "lean_type": "∀ zAI used total Yhuman : ℝ, 0 < zAI → used < total →\n  Yhuman + zAI * used < Yhuman + zAI * total",
+      "kind": "theorem"
+    }
+  ]
+}

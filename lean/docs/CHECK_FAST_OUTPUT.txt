@@ -1,0 +1,15 @@
+$ lake build IT25KnowledgeEconomy
+✔ [3297/3302] Built IT25KnowledgeEconomy.MainTheorems (65s)
+✔ [3298/3302] Built IT25KnowledgeEconomy.Assumptions (10s)
+✔ [3299/3302] Built IT25KnowledgeEconomy.PaperInterface (4.4s)
+✔ [3300/3302] Built IT25KnowledgeEconomy.ProofInterface (4.8s)
+✔ [3301/3302] Built IT25KnowledgeEconomy (3.3s)
+Build completed successfully (3302 jobs).
+exit code 0
+
+$ python3 scripts/paper_contribution.py check IT25KnowledgeEconomy --fast
+Build completed successfully (3299 jobs).
++ git diff --check -- papers/IT25KnowledgeEconomy papers/IT25KnowledgeEconomy.lean lakefile.toml ':(exclude)papers/IT25KnowledgeEconomy/source/'
+exit code 0
+
+Note: MainTheorems.lean imports Mathlib.Tactic, Mathlib.Data.Real.Basic and Mathlib.Order.Interval.Set.Defs instead of the scaffold's `import Mathlib`; the statement-spec validation of `new` ran under the same three imports because AppliedModelingLib.olean was not built on this machine (see docs/RUN_LOG.md).

@@ -1,0 +1,233 @@
+{
+  "schema": 1,
+  "paper": "IT25KnowledgeEconomy",
+  "source_url": "https://arxiv.org/abs/2312.05481v11",
+  "source_version": "arXiv 2312.05481v11, February 24, 2025 (accepted manuscript of Journal of Political Economy 133(12), 2025)",
+  "source_artifact_path": "papers/IT25KnowledgeEconomy/source-audited.pdf",
+  "source_artifact_sha256": "0b3c727a204f7801a9598dacd7ca7fdb385e21ee6877992ea0eb13c0538d8ebf",
+  "source_inventory_kind": "pinned_statement_target_scaffold",
+  "source_curated": false,
+  "seed_scaffold": true,
+  "source_coverage_mode": "named_theoretical_statements",
+  "semantic_contract_policy": {
+    "schema": 1,
+    "activation": "Before Lean drafting, independently inventory every material source atom against exact pinned source quote bytes; do not infer that inventory from declaration, binder, field, or function names. After a source item has an audited paper-local specification and a theorem/lemma proving or refuting it, add top-level semantic_contract_schema: 1 and semantic_route_schema: 2, classify every item with an explicit claim_bearing Boolean, and record a semantic_contract for each source result. Route a source definition, algorithm, model, assumption, or condition as source_semantic_declaration to the actual paper/library prerequisite used by the result Specs; never manufacture a theorem that merely restates a definition. At formalized closeout, also add source_claim_atoms_schema: 1 and complete the current raw-source-to-expanded-Spec review. Do not add a separate source_spec_correspondence worksheet, atom-to-component bridge ledger, or terminal-node disposition ledger: the builder-issued Lean graph owns the exact Spec/proof relation and complete recursive semantic and axiom closure, including proof and instance arguments. Each statement-first row supplies an inactive semantic_contract_template pairing its transparent `...Spec : Prop` with its theorem/lemma. Promote that exact template only after the independent source audit passes, the theorem has exactly the transparent Spec type, the closure record passes, and the proof hole is replaced. Do not manufacture a contract from the temporary by-sorry statement skeleton alone. Historical receipts remain readable records but cannot replace the current accepted obligation graph. For a source-game result whose feasible-action equilibrium comparison uses a conditional/posterior or observation-contingent value, add the separately byte-pinned `semantic_context_requirements` kind `strategic_observation_totality`; it requires an explicit off-path/zero-probability totality audit and cannot be satisfied by a Lean-only default value.",
+    "required_fields": [
+      "spec_declaration",
+      "evidence_declaration",
+      "evidence_mode",
+      "semantic_shape"
+    ],
+    "evidence_modes": [
+      "proves",
+      "refutes"
+    ],
+    "semantic_shapes": [
+      "plain"
+    ],
+    "shape_policy": "Only plain exact-proposition contracts are currently enforced. Do not record a specialized runtime, preprocessing, or refinement shape until the audit implements its structural check.",
+    "source_defect_routing": "Every repaired_in_lean source-proof defect must be linked from a successfully checked contract item through source_defect_ids."
+  },
+  "items": {
+    "paper_span_of_control": {
+      "statement": "Communication is costly in that each request for help consumes h ∈ (0, 1) units of the solver's time, regardless of whether the solver knows the solution. Hence, a two-layer organization optimally hires exactly n(z) workers of knowledge z < 1 to fully exploit its solver's time, where n(z) satisfies h × n(z) × (1 − z) = 1.",
+      "source_item": "Span of control n(z) (Section 3.1, the pre-AI economy)",
+      "source_kind": "claim",
+      "source_location": "Section 3.1, page 10, sentence after Figure 1's paragraph: 'a two-layer organization optimally hires exactly n(z) workers ... where n(z) satisfies h × n(z) × (1 − z) = 1'; h ∈ (0, 1) is introduced on the same page",
+      "source_url": "https://arxiv.org/abs/2312.05481v11",
+      "source_status": "pinned statement-spec transcription; independent source audit pending",
+      "spec_lean_declarations": [
+        "paper_span_of_controlSpec"
+      ],
+      "proof_lean_declarations": [
+        "paper_span_of_control"
+      ],
+      "semantic_contract_template": {
+        "spec_declaration": "paper_span_of_controlSpec",
+        "evidence_declaration": "paper_span_of_control",
+        "evidence_mode": "proves",
+        "semantic_shape": "plain"
+      }
+    },
+    "paper_span_of_control_increasing": {
+      "statement": "Similarly, a solver's span of control is equal to the number of workers (human or AI) under her supervision. Hence, a solver's span of control is increasing in the knowledge of the workers with whom she is matched. [With n(z) = 1/(h(1 − z)), h ∈ (0, 1) and z ∈ [0, 1): n(z) > 1 and n is strictly increasing.]",
+      "source_item": "Span of control exceeds one and is increasing in the workers' knowledge (Sections 3.1 and 5.1)",
+      "source_kind": "claim",
+      "source_location": "Section 5.1, page 22, paragraph before Proposition 4: 'a solver's span of control is increasing in the knowledge of the workers with whom she is matched'; n(z) = 1/(h(1 − z)) from Section 3.1, page 10",
+      "source_url": "https://arxiv.org/abs/2312.05481v11",
+      "source_status": "pinned statement-spec transcription; independent source audit pending",
+      "spec_lean_declarations": [
+        "paper_span_of_control_increasingSpec"
+      ],
+      "proof_lean_declarations": [
+        "paper_span_of_control_increasing"
+      ],
+      "semantic_contract_template": {
+        "spec_declaration": "paper_span_of_control_increasingSpec",
+        "evidence_declaration": "paper_span_of_control_increasing",
+        "evidence_mode": "proves",
+        "semantic_shape": "plain"
+      }
+    },
+    "paper_profit_identities": {
+      "statement": "Π2^tA(z) = n(z)[zAI − w(z)] − r (where z ≤ zAI); Π2^bA(s) = n(zAI)[s − r] − w(s) (where zAI ≤ s); Π2^nA(s, z) = n(z)[s − w(z)] − w(s) (where z ≤ s). In all three cases, the profit of a firm is its expected output minus the cost of the resources it uses. For instance, in the case of a tA firm that hires workers with knowledge z, its total expected output is n(z)zAI, while the cost of resources is n(z)w(z) + r.",
+      "source_item": "Profit of the three two-layer organizations equals expected output minus resource cost (Section 3.1, Wages, Prices, and Profits)",
+      "source_kind": "claim",
+      "source_location": "Section 3.1, page 12, displays Π2^tA(z) = n(z)[zAI − w(z)] − r, Π2^bA(s) = n(zAI)[s − r] − w(s), Π2^nA(s,z) = n(z)[s − w(z)] − w(s) and the sentence 'In all three cases, the profit of a firm is its expected output minus the cost of the resources it uses'",
+      "source_url": "https://arxiv.org/abs/2312.05481v11",
+      "source_status": "pinned statement-spec transcription; independent source audit pending",
+      "spec_lean_declarations": [
+        "paper_profit_identitiesSpec"
+      ],
+      "proof_lean_declarations": [
+        "paper_profit_identities"
+      ],
+      "semantic_contract_template": {
+        "spec_declaration": "paper_profit_identitiesSpec",
+        "evidence_declaration": "paper_profit_identities",
+        "evidence_mode": "proves",
+        "semantic_shape": "plain"
+      }
+    },
+    "paper_prop2_rental_rate": {
+      "statement": "Finally, the rental rate of compute r∗ is equal to zAI. [Reason given on page 19: because compute is abundant relative to time, some AI agents must engage in independent production; the profit of a single-layer firm using an AI agent is zAI − r (page 12), which is zero in a competitive equilibrium.]",
+      "source_item": "Proposition 2 (prices): the rental rate of compute equals zAI",
+      "source_kind": "proposition",
+      "source_location": "Proposition 2, page 19: 'Finally, the rental rate of compute r∗ is equal to zAI'; the argument on page 19 ('because compute is abundant relative to time, some AI agents must engage in independent production') and the single-layer profit zAI − r on page 12 with zero profit",
+      "source_url": "https://arxiv.org/abs/2312.05481v11",
+      "source_status": "pinned statement-spec transcription; independent source audit pending",
+      "spec_lean_declarations": [
+        "paper_prop2_rental_rateSpec"
+      ],
+      "proof_lean_declarations": [
+        "paper_prop2_rental_rate"
+      ],
+      "semantic_contract_template": {
+        "spec_declaration": "paper_prop2_rental_rateSpec",
+        "evidence_declaration": "paper_prop2_rental_rate",
+        "evidence_mode": "proves",
+        "semantic_shape": "plain"
+      }
+    },
+    "paper_prop2_ai_assisted_worker_wage": {
+      "statement": "w∗(z) = zAI(1 − 1/n(z)) > z for all z ∈ W∗_a. [Formalized as: the zero-profit condition n(z)[zAI − w] − r = 0 with r = zAI and n(z) = 1/(h(1 − z)) yields w = zAI(1 − 1/n(z)), and this wage is strictly below zAI. The strict inequality w∗(z) > z on W∗_a is an equilibrium property (which humans belong to W∗_a) and is a declared boundary.]",
+      "source_item": "Proposition 2 (wages): humans working with an AI solver earn w∗(z) = zAI(1 − 1/n(z))",
+      "source_kind": "proposition",
+      "source_location": "Proposition 2, page 19, first wage bullet: 'w∗(z) = zAI(1 − 1/n(z)) > z for all z ∈ W∗_a'; zero-profit condition of a tA firm from page 12 with r∗ = zAI",
+      "source_url": "https://arxiv.org/abs/2312.05481v11",
+      "source_status": "pinned statement-spec transcription; independent source audit pending",
+      "spec_lean_declarations": [
+        "paper_prop2_ai_assisted_worker_wageSpec"
+      ],
+      "proof_lean_declarations": [
+        "paper_prop2_ai_assisted_worker_wage"
+      ],
+      "semantic_contract_template": {
+        "spec_declaration": "paper_prop2_ai_assisted_worker_wageSpec",
+        "evidence_declaration": "paper_prop2_ai_assisted_worker_wage",
+        "evidence_mode": "proves",
+        "semantic_shape": "plain"
+      }
+    },
+    "paper_prop2_ai_workers_solver_wage": {
+      "statement": "w∗(z) = n(zAI)(z − zAI) > z for all z ∈ S∗_a. [Formalized as: the zero-profit condition n(zAI)[s − r] − w = 0 with r = zAI yields w = n(zAI)(s − zAI). The strict inequality > z on S∗_a is an equilibrium property and a declared boundary.]",
+      "source_item": "Proposition 2 (wages): humans supervising AI workers earn w∗(z) = n(zAI)(z − zAI)",
+      "source_kind": "proposition",
+      "source_location": "Proposition 2, page 19, last wage bullet: 'w∗(z) = n(zAI)(z − zAI) > z for all z ∈ S∗_a'; zero-profit condition of a bA firm from page 12 with r∗ = zAI",
+      "source_url": "https://arxiv.org/abs/2312.05481v11",
+      "source_status": "pinned statement-spec transcription; independent source audit pending",
+      "spec_lean_declarations": [
+        "paper_prop2_ai_workers_solver_wageSpec"
+      ],
+      "proof_lean_declarations": [
+        "paper_prop2_ai_workers_solver_wage"
+      ],
+      "semantic_contract_template": {
+        "spec_declaration": "paper_prop2_ai_workers_solver_wageSpec",
+        "evidence_declaration": "paper_prop2_ai_workers_solver_wage",
+        "evidence_mode": "proves",
+        "semantic_shape": "plain"
+      }
+    },
+    "paper_zAI_always_loses": {
+      "statement": "To begin, note that the individual with knowledge zAI always loses from AI, i.e., w∗(zAI) < w(zAI). [Premises as stated in the paper: In particular, w∗(sup W∗) = sup W∗_p, w∗(zAI) = zAI (Proposition 2); w(z) > z for all z ∉ cl I (so w(z) > z for all z ∈ [0, 1] when h < h0) (Proposition 1).]",
+      "source_item": "The individual with knowledge zAI always loses from AI (Section 5.2)",
+      "source_kind": "claim",
+      "source_location": "Section 5.2, page 24: 'the individual with knowledge zAI always loses from AI, i.e., w∗(zAI) < w(zAI)'; premises: Proposition 2, page 19, 'w∗(zAI) = zAI', and Proposition 1, page 16, 'w(z) > z for all z ∈ [0, 1] when h < h0'",
+      "source_url": "https://arxiv.org/abs/2312.05481v11",
+      "source_status": "pinned statement-spec transcription; independent source audit pending",
+      "spec_lean_declarations": [
+        "paper_zAI_always_losesSpec"
+      ],
+      "proof_lean_declarations": [
+        "paper_zAI_always_loses"
+      ],
+      "semantic_contract_template": {
+        "spec_declaration": "paper_zAI_always_losesSpec",
+        "evidence_declaration": "paper_zAI_always_loses",
+        "evidence_mode": "proves",
+        "semantic_shape": "plain"
+      }
+    },
+    "paper_prop6_nonautonomous_worker_wage": {
+      "statement": "Since compute is abundant relative to time and AI is non-autonomous, the equilibrium rental rate of compute is zero, r⋆ = 0. [Combined with the zero-profit condition of a firm that uses AI as a solver, n(z)[zAI − w(z)] − r = 0 (page 12), this gives w⋆(z) = zAI for every human worker assisted by non-autonomous AI. The formula is derived from the paper's displays; it is not printed as such in v11.]",
+      "source_item": "Non-autonomous AI: with r⋆ = 0 the human workers of an AI-assisted firm earn the whole team output, w⋆(z) = zAI (Section 6.1)",
+      "source_kind": "claim",
+      "source_location": "Section 6.1, page 26: 'the equilibrium rental rate of compute is zero, r⋆ = 0. The reason is that some compute must remain idle'; Proposition 6, page 27: 'If zAI > w(0), then only the least knowledgeable individuals use AI as a solver'; zero-profit condition of a tA firm from page 12",
+      "source_url": "https://arxiv.org/abs/2312.05481v11",
+      "source_status": "pinned statement-spec transcription; independent source audit pending",
+      "spec_lean_declarations": [
+        "paper_prop6_nonautonomous_worker_wageSpec"
+      ],
+      "proof_lean_declarations": [
+        "paper_prop6_nonautonomous_worker_wage"
+      ],
+      "semantic_contract_template": {
+        "spec_declaration": "paper_prop6_nonautonomous_worker_wageSpec",
+        "evidence_declaration": "paper_prop6_nonautonomous_worker_wage",
+        "evidence_mode": "proves",
+        "semantic_shape": "plain"
+      }
+    },
+    "paper_prop6_bottom_prefers_nonautonomous": {
+      "statement": "The least knowledgeable benefit more from non-autonomous AI than from no AI or autonomous AI: ∃ ε > 0 such that, for all z ∈ [0, ε), w⋆(z) ≥ max{w(z), w∗(z)} (with strict inequality if zAI > w(0)). [Formalized for a worker assisted by AI in both regimes: w⋆(z) − w∗(z) = zAI/n(z) = h(1 − z)zAI > 0, and w⋆(z) = zAI exceeds the pre-AI wage exactly when zAI > w(z). That the least knowledgeable are AI-assisted in both regimes near z = 0 is an equilibrium property and a declared boundary.]",
+      "source_item": "Proposition 6, item 3: the least knowledgeable benefit more from non-autonomous AI than from no AI or autonomous AI",
+      "source_kind": "proposition",
+      "source_location": "Proposition 6, page 27, item 3: '∃ ε > 0 such that, for all z ∈ [0, ε), w⋆(z) ≥ max{w(z), w∗(z)} (with strict inequality if zAI > w(0))'; wage formulas w⋆(z) = zAI (Section 6.1, page 26) and w∗(z) = zAI(1 − 1/n(z)) (Proposition 2, page 19)",
+      "source_url": "https://arxiv.org/abs/2312.05481v11",
+      "source_status": "pinned statement-spec transcription; independent source audit pending",
+      "spec_lean_declarations": [
+        "paper_prop6_bottom_prefers_nonautonomousSpec"
+      ],
+      "proof_lean_declarations": [
+        "paper_prop6_bottom_prefers_nonautonomous"
+      ],
+      "semantic_contract_template": {
+        "spec_declaration": "paper_prop6_bottom_prefers_nonautonomousSpec",
+        "evidence_declaration": "paper_prop6_bottom_prefers_nonautonomous",
+        "evidence_mode": "proves",
+        "semantic_shape": "plain"
+      }
+    },
+    "paper_prop6_output_idle_compute": {
+      "statement": "Overall output is strictly higher with autonomous than non-autonomous AI. [Explanation given on page 27: non-autonomy imposes a binding constraint on compute use, leaving some of it idle. Formalized in the accounting form: with human output Yhuman fixed, compute used in independent production at zAI per unit, strictly less compute used under non-autonomy gives strictly less output.]",
+      "source_item": "Proposition 6, item 1: overall output is strictly higher with autonomous than non-autonomous AI (idle-compute accounting)",
+      "source_kind": "proposition",
+      "source_location": "Proposition 6, page 27, item 1, and the explanation on page 27: 'total output with non-autonomous AI is strictly lower than with autonomous AI because non-autonomy imposes a binding constraint on compute use, leaving some of it idle'; output accounting on page 13 (term zAI µi)",
+      "source_url": "https://arxiv.org/abs/2312.05481v11",
+      "source_status": "pinned statement-spec transcription; independent source audit pending",
+      "spec_lean_declarations": [
+        "paper_prop6_output_idle_computeSpec"
+      ],
+      "proof_lean_declarations": [
+        "paper_prop6_output_idle_compute"
+      ],
+      "semantic_contract_template": {
+        "spec_declaration": "paper_prop6_output_idle_computeSpec",
+        "evidence_declaration": "paper_prop6_output_idle_compute",
+        "evidence_mode": "proves",
+        "semantic_shape": "plain"
+      }
+    }
+  }
+}
