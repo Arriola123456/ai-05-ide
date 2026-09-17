@@ -4843,6 +4843,35 @@ conversation be recorded for this file; the record was kept turn by turn.
 
 **Assistant:** ran the pipeline as described in step 6 above.
 
+**User:** `tu archivo LEAN logra derivar todas las proposiciones/teoremas del modelo?`
+
+**Assistant:** No. Proved exactly as printed: the span of control and its
+monotonicity, the profit identities, Proposition 6.1 in accounting form.
+Proved with the paper's displays as hypotheses: Proposition 2's prices and
+wages, the "$z_{AI}$ always loses" claim, the non-autonomous wage,
+Proposition 6.3 for an AI-assisted worker. Not derived (declared boundaries):
+existence and uniqueness of equilibrium, the occupational partition and the
+matching, Propositions 1, 3, 4 and 5 (the threshold $\bar z_{AI}$ is covered
+only numerically), the strict "$> z$" of Proposition 2 and items 2 and 4 of
+Proposition 6 (their two-type analogues are proved in `MainTheorems.lean` as
+the student's extension).
+
+**User:** `porque no usas lean para derivar las fronteras declaradas?`
+
+**Assistant:** Because they are the continuum equilibrium, not algebra:
+measurable partitions of $[0,1]$, the matching function fixed by the integral
+constraint (1), solver wages from $w'(z) = n(e(z))$ with a continuity
+constant, and for Proposition 5 the whole post-AI solution behind $w^*(0)$.
+Formalizing that over Mathlib is library work of weeks. Offered the feasible
+upgrade — verifying the two-type equilibrium from primitives — with a 3–4 hour
+estimate.
+
+**User:** `haz push pero no intentemos la versión de 2 tipos, pregunta, arreglaste el archivo prompt.md para incluir nuestra conversación?`
+
+**Assistant:** added the exchanges above to this file, committed, and pushed
+the branch `analysis` (the user's explicit approval); the two-type equilibrium
+from primitives was not attempted.
+
 **Assistant's own answer to the trap (written after reading the paper):**
 "The distributional effect is driven by AI autonomy, not capability" collapses
 a two-dimensional taxonomy. Under autonomous AI there are winners at the
