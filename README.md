@@ -167,5 +167,13 @@ idle-compute form of Proposition 6.1. Status **partially formalized**: the
 existence and uniqueness of equilibrium, the occupational partition (which
 humans are in $W^*_a$, $S^*_a$, $W^\star_a$), the strict inequalities $> z$ of
 Proposition 2 and the threshold $\bar z_{AI}$ of Proposition 5 are declared
-boundaries, not Lean theorems; the numerics cover them. Build and check results
-are in `lean/docs/CHECK_FAST_OUTPUT.txt`.
+boundaries, not Lean theorems; the numerics cover them. Results:
+`lake build IT25KnowledgeEconomy` — Build completed successfully (3302 jobs);
+`check IT25KnowledgeEconomy --fast` — exit code 0
+(`lean/docs/CHECK_FAST_OUTPUT.txt`). One deviation, stated exactly: the
+library had been renamed and its root module could not be rebuilt on this
+laptop in time (about 300 of its own modules still pending after 12 hours,
+disk-bound), so the paper modules import the three Mathlib modules they use
+instead of the scaffold's `import Mathlib`, and the scaffold's statement-spec
+validation was run under those imports instead of `import AppliedModelingLib`;
+no library declaration is used by any Spec or proof (`lean/docs/RUN_LOG.md`).

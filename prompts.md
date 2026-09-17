@@ -4817,15 +4817,31 @@ conversation be recorded for this file; the record was kept turn by turn.
    one per slide, the hand crops one per slide), `docs/RUN_LOG.md`,
    `docs/FORMALIZATION_PLAN.md`, `FINAL_VALIDATION_REPORT.md`,
    `docs/DependencyDAG.tex` (rendered with MiKTeX).
-6. When the library build finished: scratch file checked with `lake env
-   lean`, `paper_contribution.py new --statement-spec` (all Specs
-   Lean-validated), proofs installed, `lake build IT25KnowledgeEconomy`,
-   `check IT25KnowledgeEconomy --fast`, `status.json` set to partially
-   formalized, `sync_paper_status.py`, folder copied to `lean/`. Results in
-   `lean/docs/CHECK_FAST_OUTPUT.txt`.
+6. The library build did not finish: two host-memory kills, an overnight
+   suspension of the laptop, and a disk-bound final phase (5.6 GB of Mathlib
+   `.olean` files against a 4 GB WSL cache; about 300 of the library's own
+   modules still pending after 12 hours). The user asked to run the pipeline
+   with what was available. The scratch file was checked with `lake env lean`
+   against three Mathlib modules (four tactic-level fixes, recorded in the
+   run log), `paper_contribution.py new --statement-spec` was run with the
+   scaffold's validation import temporarily set to those modules (script
+   restored afterwards; all ten Specs validated), the proofs and the
+   extension were installed with the same imports, `lake build
+   IT25KnowledgeEconomy` completed (3302 jobs) and `check
+   IT25KnowledgeEconomy --fast` exited 0; `status.json` set to partially
+   formalized with the deviation in its caveat; `sync_paper_status.py`; the
+   folder copied to `lean/`. Results in `lean/docs/CHECK_FAST_OUTPUT.txt`.
 7. Assembled this file with `build_prompts_it25.py` (Session 1 = the export,
    heading levels demoted), committed, and pushed after the user's explicit
    approval.
+
+**User (2026-09-16, later):** `Ya comenté el link en el issue #3, sigue, como va la corrida?` · `ya terminó el build?` · `como va?` · `cuanto falta? conviene parar?` · `estoy en la universidad actualmente, puedo apagar mi laptop yy continuar en mi casa?` · `Ok cerrare mi laptop despues de este mensaje` · `Ya en casa, continua` · `como vamos?`
+
+**Assistant:** status reports on the library build (progress, the memory kills, the WSL limits set in `.wslconfig`, the backup of the session files, the recommendation to suspend rather than shut down).
+
+**User (2026-09-17):** `continua` · `puedes correr el pipeline de lean con lo que ya tenemos?`
+
+**Assistant:** ran the pipeline as described in step 6 above.
 
 **Assistant's own answer to the trap (written after reading the paper):**
 "The distributional effect is driven by AI autonomy, not capability" collapses
