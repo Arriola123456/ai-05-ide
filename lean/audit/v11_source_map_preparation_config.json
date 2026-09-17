@@ -1,0 +1,78 @@
+{
+  "schema": 1,
+  "paper": "IT25KnowledgeEconomy",
+  "namespace": "IT25KnowledgeEconomy",
+  "paper_interface_module": "",
+  "semantic_route_schema": 2,
+  "closeout_review_policy": {
+    "schema": 1,
+    "source_scope": "all_named_theory",
+    "repeat_final_scope": "main_primary",
+    "required_final_adversary_count": 1,
+    "scheduling": {
+      "initial_semantic_review": [],
+      "final_adversarial_review": []
+    }
+  },
+  "source_version": "arXiv 2312.05481v11, February 24, 2025 (accepted manuscript of Journal of Political Economy 133(12), 2025)",
+  "include_specs": [
+    "paper_span_of_controlSpec",
+    "paper_span_of_control_increasingSpec",
+    "paper_profit_identitiesSpec",
+    "paper_prop2_rental_rateSpec",
+    "paper_prop2_ai_assisted_worker_wageSpec",
+    "paper_prop2_ai_workers_solver_wageSpec",
+    "paper_zAI_always_losesSpec",
+    "paper_prop6_nonautonomous_worker_wageSpec",
+    "paper_prop6_bottom_prefers_nonautonomousSpec",
+    "paper_prop6_output_idle_computeSpec"
+  ],
+  "source_item_for_spec": {
+    "paper_span_of_controlSpec": "paper_span_of_control",
+    "paper_span_of_control_increasingSpec": "paper_span_of_control_increasing",
+    "paper_profit_identitiesSpec": "paper_profit_identities",
+    "paper_prop2_rental_rateSpec": "paper_prop2_rental_rate",
+    "paper_prop2_ai_assisted_worker_wageSpec": "paper_prop2_ai_assisted_worker_wage",
+    "paper_prop2_ai_workers_solver_wageSpec": "paper_prop2_ai_workers_solver_wage",
+    "paper_zAI_always_losesSpec": "paper_zAI_always_loses",
+    "paper_prop6_nonautonomous_worker_wageSpec": "paper_prop6_nonautonomous_worker_wage",
+    "paper_prop6_bottom_prefers_nonautonomousSpec": "paper_prop6_bottom_prefers_nonautonomous",
+    "paper_prop6_output_idle_computeSpec": "paper_prop6_output_idle_compute"
+  },
+  "evidence_declaration_for_spec": {
+    "paper_span_of_controlSpec": "IT25KnowledgeEconomy.paper_span_of_control",
+    "paper_span_of_control_increasingSpec": "IT25KnowledgeEconomy.paper_span_of_control_increasing",
+    "paper_profit_identitiesSpec": "IT25KnowledgeEconomy.paper_profit_identities",
+    "paper_prop2_rental_rateSpec": "IT25KnowledgeEconomy.paper_prop2_rental_rate",
+    "paper_prop2_ai_assisted_worker_wageSpec": "IT25KnowledgeEconomy.paper_prop2_ai_assisted_worker_wage",
+    "paper_prop2_ai_workers_solver_wageSpec": "IT25KnowledgeEconomy.paper_prop2_ai_workers_solver_wage",
+    "paper_zAI_always_losesSpec": "IT25KnowledgeEconomy.paper_zAI_always_loses",
+    "paper_prop6_nonautonomous_worker_wageSpec": "IT25KnowledgeEconomy.paper_prop6_nonautonomous_worker_wage",
+    "paper_prop6_bottom_prefers_nonautonomousSpec": "IT25KnowledgeEconomy.paper_prop6_bottom_prefers_nonautonomous",
+    "paper_prop6_output_idle_computeSpec": "IT25KnowledgeEconomy.paper_prop6_output_idle_compute"
+  },
+  "source_semantic_declarations": {},
+  "paper_semantic_prerequisite_sources": {},
+  "library_semantic_prerequisite_sources": {},
+  "semantic_context_requirements": {},
+  "model_convention_ids_by_source_item": {},
+  "source_named_result_inventory_review": {
+    "complete": false,
+    "validator": "",
+    "method": "",
+    "validated_at": "",
+    "prose_definition_presentations": [],
+    "candidate_presentations": [],
+    "source_region_partition": {
+      "complete": false,
+      "validator": "",
+      "method": "",
+      "validated_at": "",
+      "regions": [],
+      "source_item_regions": {},
+      "candidate_presentation_regions": {},
+      "prose_definition_presentation_regions": {},
+      "promoted_source_items": []
+    }
+  }
+}
